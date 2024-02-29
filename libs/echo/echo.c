@@ -34,10 +34,8 @@ __declspec(dllexport) const char *CommandHelpA() { return Help; }
 
 // Exported function - Run
 __declspec(dllexport) LPVOID CommandRunA(int argc, char **argv) {
-  if (argc > 1) {
-    for (int i = 0; i < argc; i++) {
-      core->wprintf(L"%S\n", argv[i]);
-    } 
+  for (int i = 0; i < argc - 1; i++) {
+    core->wprintf(L"%S\n", argv[i]);
   }
   return (LPVOID)argc;
 }
